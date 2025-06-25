@@ -3,19 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hemant Solanki | Data Analyst Portfolio</title>
+  <title>Hemant Solanki | Data Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    : root {
-      --bg-light: #f4f4f4;
+    :root {
+      --bg-light: #f9f9f9;
       --bg-dark: #121212;
       --text-light: #333;
       --text-dark: #eee;
-      --accent: #111;
-    }
-
-    [data-theme="dark"] {
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
+      --primary: #3b82f6;
     }
 
     [data-theme="light"] {
@@ -23,105 +19,141 @@
       color: var(--text-light);
     }
 
+    [data-theme="dark"] {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      transition: background-color 0.3s, color 0.3s;
+      transition: background 0.3s, color 0.3s;
     }
 
     header {
-      background-color: var(--accent);
-      color: #fff;
-      padding: 20px 40px;
+      background-color: var(--primary);
+      color: white;
+      padding: 30px;
       text-align: center;
     }
 
+    nav {
+      margin-top: 15px;
+    }
+
     nav a {
-      color: #fff;
-      margin: 0 15px;
+      color: white;
       text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
     }
 
     section {
-      padding: 40px 20px;
+      padding: 60px 20px;
       max-width: 900px;
       margin: auto;
     }
 
-    h2 {
-      margin-bottom: 20px;
+    h1, h2 {
       text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .btn:hover {
+      background: #2563eb;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .skills, .projects {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    [data-theme="dark"] .card {
+      background: #1e1e1e;
     }
 
     iframe {
       width: 100%;
-      height: 800px;
+      height: 600px;
       border: none;
       border-radius: 8px;
-    }
-
-    .btn-link, .btn-theme {
-      display: inline-block;
-      background-color: var(--accent);
-      color: #fff;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 5px;
-      margin: 10px auto;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    .skills-grid, .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      text-align: center;
-    }
-
-    .skill-box, .project-box {
-      padding: 15px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    [data-theme="dark"] .skill-box, 
-    [data-theme="dark"] .project-box {
-      background: #1e1e1e;
-      color: #eee;
+      margin-top: 20px;
     }
 
     form {
       display: grid;
-      gap: 10px;
+      gap: 12px;
     }
 
     input, textarea {
-      padding: 10px;
-      border-radius: 5px;
+      padding: 12px;
+      border-radius: 6px;
       border: 1px solid #ccc;
-      font-size: 1em;
+      font-size: 1rem;
+    }
+
+    button {
+      cursor: pointer;
     }
 
     footer {
-      background-color: var(--accent);
-      color: #ccc;
-      padding: 20px;
+      background: var(--primary);
+      color: white;
       text-align: center;
+      padding: 20px;
     }
 
     .center {
       text-align: center;
     }
+
+    .toggle-theme {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
 
+  <button class="toggle-theme" onclick="toggleTheme()">🌗 Toggle Theme</button>
+
   <header>
     <h1>Hemant Solanki</h1>
-    <p>Data Analyst Portfolio</p>
+    <p>Data Analyst | Insight Generator | Visualization Enthusiast</p>
     <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -131,83 +163,74 @@
     </nav>
   </header>
 
-  <section class="center">
-    <button class="btn-theme" onclick="toggleTheme()">🌗 Toggle Theme</button>
-    <a href="resume.pdf" class="btn-link" download>📄 Download Resume</a>
-  </section>
-
   <section id="about">
-    <h2>About Me</h2>
+    <h2>👋 About Me</h2>
     <p>
-      I'm a passionate Data Analyst with skills in SQL, Excel, Tableau, Python, and R. I enjoy turning raw data into meaningful business insights. Explore my skills and projects below!
+      I’m a passionate Data Analyst with expertise in SQL, Python, Tableau, and Excel. I specialize in transforming raw data into clear, actionable insights. My mission is to use data to solve real business problems and drive smarter decisions.
     </p>
+    <div class="center">
+      <a href="resume.pdf" class="btn" download>📄 Download My Resume</a>
+    </div>
   </section>
 
   <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-box">SQL</div>
-      <div class="skill-box">Excel</div>
-      <div class="skill-box">Python</div>
-      <div class="skill-box">Tableau</div>
-      <div class="skill-box">Power BI</div>
-      <div class="skill-box">R Programming</div>
-      <div class="skill-box">Data Cleaning</div>
-      <div class="skill-box">Storytelling</div>
+    <h2>🛠 Skills</h2>
+    <div class="grid skills">
+      <div class="card">SQL</div>
+      <div class="card">Python</div>
+      <div class="card">Tableau</div>
+      <div class="card">Excel</div>
+      <div class="card">Power BI</div>
+      <div class="card">R Programming</div>
+      <div class="card">Data Cleaning</div>
+      <div class="card">Storytelling</div>
     </div>
   </section>
 
   <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <div class="project-box">
-        <h4>Sales Dashboard</h4>
-        <p>Created an interactive Tableau dashboard for monthly sales performance analysis.</p>
+    <h2>📈 Projects</h2>
+    <div class="grid projects">
+      <div class="card">
+        <h3>Sales Dashboard</h3>
+        <p>Interactive Tableau dashboard to monitor monthly performance and KPIs.</p>
       </div>
-      <div class="project-box">
-        <h4>HR Analytics</h4>
-        <p>Used Python and pandas to analyze attrition trends and recommend retention strategies.</p>
+      <div class="card">
+        <h3>HR Attrition Analysis</h3>
+        <p>Used Python and pandas to detect attrition patterns and recommend policies.</p>
       </div>
-      <div class="project-box">
-        <h4>Expense Tracker App</h4>
-        <p>Built a budget tracker using Streamlit and Excel integration.</p>
+      <div class="card">
+        <h3>Expense Tracker App</h3>
+        <p>Streamlit app built to track expenses using Excel and Python.</p>
       </div>
     </div>
   </section>
 
   <section id="portfolio">
-    <h2>My Canva Portfolio</h2>
-    <iframe 
-      src="https://hemantsolanki.my.canva.site/white-black-simple-modern-data-analyst-presentation" 
-      allowfullscreen>
-    </iframe>
+    <h2>📄 Canva Portfolio</h2>
+    <iframe src="https://hemantsolanki.my.canva.site/white-black-simple-modern-data-analyst-presentation"></iframe>
     <div class="center">
-      <a href="https://hemantsolanki.my.canva.site/white-black-simple-modern-data-analyst-presentation" 
-         class="btn-link" target="_blank">
-        🌐 Open in New Tab
-      </a>
+      <a href="https://hemantsolanki.my.canva.site/white-black-simple-modern-data-analyst-presentation" target="_blank" class="btn">🔗 View Fullscreen</a>
     </div>
   </section>
 
   <section id="contact">
-    <h2>Contact Me</h2>
+    <h2>📬 Contact Me</h2>
     <form name="contact" method="POST" data-netlify="true">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
       <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit" class="btn-link">📨 Send Message</button>
+      <button type="submit" class="btn">📨 Send Message</button>
     </form>
   </section>
 
   <footer>
-    &copy; 2025 Hemant Solanki. All rights reserved.
+    © 2025 Hemant Solanki | Powered by GitHub Pages
   </footer>
 
   <script>
     function toggleTheme() {
-      const current = document.documentElement.getAttribute("data-theme");
-      const next = current === "light" ? "dark" : "light";
-      document.documentElement.setAttribute("data-theme", next);
+      const theme = document.documentElement.getAttribute("data-theme");
+      document.documentElement.setAttribute("data-theme", theme === "light" ? "dark" : "light");
     }
   </script>
 
