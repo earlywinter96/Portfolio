@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hemant Solanki | Data Analyst Portfolio</title>
+  <style>
+    : root {
+      --bg-light: #f4f4f4;
+      --bg-dark: #121212;
+      --text-light: #333;
+      --text-dark: #eee;
+      --accent: #111;
+    }
+
+    [data-theme="dark"] {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    [data-theme="light"] {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      background-color: var(--accent);
+      color: #fff;
+      padding: 20px 40px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    iframe {
+      width: 100%;
+      height: 800px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .btn-link, .btn-theme {
+      display: inline-block;
+      background-color: var(--accent);
+      color: #fff;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 10px auto;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .skills-grid, .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      text-align: center;
+    }
+
+    .skill-box, .project-box {
+      padding: 15px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    [data-theme="dark"] .skill-box, 
+    [data-theme="dark"] .project-box {
+      background: #1e1e1e;
+      color: #eee;
+    }
+
+    form {
+      display: grid;
+      gap: 10px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+
+    footer {
+      background-color: var(--accent);
+      color: #ccc;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hemant Solanki</h1>
+    <p>Data Analyst Portfolio</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="center">
+    <button class="btn-theme" onclick="toggleTheme()">🌗 Toggle Theme</button>
+    <a href="resume.pdf" class="btn-link" download>📄 Download Resume</a>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a passionate Data Analyst with skills in SQL, Excel, Tableau, Python, and R. I enjoy turning raw data into meaningful business insights. Explore my skills and projects below!
+    </p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-box">SQL</div>
+      <div class="skill-box">Excel</div>
+      <div class="skill-box">Python</div>
+      <div class="skill-box">Tableau</div>
+      <div class="skill-box">Power BI</div>
+      <div class="skill-box">R Programming</div>
+      <div class="skill-box">Data Cleaning</div>
+      <div class="skill-box">Storytelling</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-box">
+        <h4>Sales Dashboard</h4>
+        <p>Created an interactive Tableau dashboard for monthly sales performance analysis.</p>
+      </div>
+      <div class="project-box">
+        <h4>HR Analytics</h4>
+        <p>Used Python and pandas to analyze attrition trends and recommend retention strategies.</p>
+      </div>
+      <div class="project-box">
+        <h4>Expense Tracker App</h4>
+        <p>Built a budget tracker using Streamlit and Excel integration.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <h2>My Canva Portfolio</h2>
+    <iframe 
+      src="https://hemantsolanki.my.canva.site/white-black-simple-modern-data-analyst-presentation" 
+      allowfullscreen>
+    </iframe>
+    <div class="center">
+      <a href="https://hemantsolanki.my.canva.site/white-black-simple-modern-data-analyst-presentation" 
+         class="btn-link" target="_blank">
+        🌐 Open in New Tab
+      </a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form name="contact" method="POST" data-netlify="true">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit" class="btn-link">📨 Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Hemant Solanki. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-theme");
+      const next = current === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", next);
+    }
+  </script>
+
+</body>
+</html>
